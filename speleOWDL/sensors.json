@@ -1,0 +1,504 @@
+[
+    {
+        "active": "True",
+        "description": "Parc Follatons - Tension Pile GSM",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=0&w=0&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Tension",
+            "station": "Parc Follatons",
+            "module": "Pile GSM",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Parc Follatons - Niveau Signal GSM",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=0&w=1&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Puissance",
+            "station": "Parc Follatons",
+            "module": "Signal GSM",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Parc Follatons - Temperature GSM",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=10&w=1&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Température",
+            "station": "Parc Follatons",
+            "module": "Module GSM",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Parc Follatons - Pression atmospherique",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=10&w=2&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Pression atmosphérique",
+            "station": "Parc Follatons",
+            "module": "Baromètre Follatons",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Parc Follatons - Tension Pile Cavelink",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=10&w=220&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Tension",
+            "station": "Parc Follatons",
+            "module": "Pile Cavelink",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Parc Follatons - Resistance Antenne Cavelink",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=10&w=224&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Résistance",
+            "station": "Parc Follatons",
+            "module": "Antenne Cavelink",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Baudegamu - Tension Pile Cavelink",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=20&w=220&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Tension",
+            "station": "Baudegamu",
+            "module": "Pile Cavelink",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Baudegamu - Resistance Antenne",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=20&w=224&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Résistance",
+            "station": "Baudegamu",
+            "module": "Antenne Cavelink",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Baudegamu - dBuWs/bit -> Surface",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=20&w=264&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Puissance",
+            "station": "Baudegamu",
+            "module": "Emission vers surface",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Baudegamu - Niveau Riviere Lanceleau",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=20&w=100&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Pression",
+            "station": "Baudegamu",
+            "module": "Rivière Lanceleau",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Baudegamu - Temp. Riviere Lanceleau",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=20&w=2&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Température",
+            "station": "Baudegamu",
+            "module": "Rivière Lanceleau",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Baudegamu - Niveau Arthur",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=21&w=100&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Pression",
+            "station": "Baudegamu",
+            "module": "Galerie Arthur",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Baudegamu - Temp. Arthur",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=21&w=2&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Température",
+            "station": "Baudegamu",
+            "module": "Galerie Arthur",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Pisserette - Tension Pile GSM",
+        "url": "http://www.cavelink.com/cl/da.php?s=143&g=0&w=0&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Tension",
+            "station": "Pisserette",
+            "module": "Pile GSM",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Pisserette - Niveau GSM",
+        "url": "http://www.cavelink.com/cl/da.php?s=143&g=0&w=1&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Puissance",
+            "station": "Pisserette",
+            "module": "Signal GSM",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Pisserette - Température GSM",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=30&w=1&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Température",
+            "station": "Pisserette",
+            "module": "Module GSM",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Pisserette - Pression atmospherique GSM",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=30&w=2&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Pression atmosphérique",
+            "station": "Pisserette",
+            "module": "Module GSM",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Pisserette - Tension Pile Cavelink",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=30&w=220&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Tension",
+            "station": "Pisserette",
+            "module": "Pile Cavelink",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Pisserette - Resistance Antenne Cave-Link",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=30&w=224&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Résistance",
+            "station": "Pisserette",
+            "module": "Antenne Cavelink",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "False",
+        "description": "Glaisine - Tension Pile Cavelink",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=40&w=220&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Tension",
+            "station": "Glaisine",
+            "module": "Pile Cavelink",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "False",
+        "description": "Glaisine - Resistance Antenne Cavelink",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=40&w=224&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Résistance",
+            "station": "Glaisine",
+            "module": "Antenne Cavelink",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "False",
+        "description": "Glaisine - dBuWs/bit -> Surface",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=40&w=263&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Puissance",
+            "station": "Glaisine",
+            "module": "Emission vers surface",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "False",
+        "description": "Glaisine - Temperature Lac Pont de Singe",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=40&w=2&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Température",
+            "station": "Glaisine",
+            "module": "Lac Pont de Singe",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "False",
+        "description": "Glaisine - Niveau Lac Pont de Singe",
+        "url": "http://www.cavelink.com/cl/da.php?s=142&g=40&w=100&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Pression",
+            "station": "Glaisine",
+            "module": "Lac Pont de Singe",
+            "grotte": "Réseau des Fées",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Resurgence Orbe - Niveau",
+        "url": "http://www.cavelink.com/cl/da.php?s=102&g=1&w=0&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Pression",
+            "station": "Résurgence Orbe",
+            "module": "Niveau Résurgence",
+            "grotte": "Grottes de Vallorbe",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Resurgence Orbe - Tension Pile",
+        "url": "http://www.cavelink.com/cl/da.php?s=102&g=0&w=0&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Tension",
+            "station": "Résurgence Orbe",
+            "module": "Pile Cavelink Résurgence",
+            "grotte": "Grottes de Vallorbe",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Resurgence Orbe - Niveau GSM",
+        "url": "http://www.cavelink.com/cl/da.php?s=102&g=0&w=1&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Puissance",
+            "station": "Résurgence Orbe",
+            "module": "Signal GSM Résurgence",
+            "grotte": "Grottes de Vallorbe",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Resurgence Orbe - Temperature",
+        "url": "http://www.cavelink.com/cl/da.php?s=102&g=1&w=1&l=10",
+        "table": "speleo",
+        "type": "cavelink",
+        "tags": {
+            "sensor": "Température",
+            "station": "Résurgence Orbe",
+            "module": "Température Résurgence",
+            "grotte": "Grottes de Vallorbe",
+            "commune": "Vallorbe",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Pluviometre au Sentier",
+        "table": "meteo",
+        "unit": "l/m2",
+        "type": "netatmo",
+        "latitude": "46.610756701907",
+        "longitude": "6.2341437521148",
+        "address": "Grande-Rue 55, 1347 Le Chenit",
+        "tags": {
+            "sensor": "Netatmo",
+            "station": "Le Sentier",
+            "module": "Pluviomètre",
+            "commune": "Le Sentier",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Pluviometre au Lieu",
+        "table": "meteo",
+        "unit": "l/m2",
+        "type": "netatmo",
+        "latitude": "46.659512",
+        "longitude": "6.276152",
+        "address": "La Frasse, Le Lieu",
+        "tags": {
+            "sensor": "Netatmo",
+            "station": "La Frasse",
+            "module": "Pluviomètre",
+            "commune": "Le Lieu",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    },
+    {
+        "active": "True",
+        "description": "Pluviometre Ballaigues",
+        "table": "meteo",
+        "unit": "l/m2",
+        "type": "netatmo",
+        "latitude": "46.730122431355",
+        "longitude": "6.3992708534424",
+        "address": "Le Friand 1, Ballaigues",
+        "tags": {
+            "sensor": "Netatmo",
+            "station": "Le Friand 1",
+            "module": "Pluviomètre",
+            "commune": "Ballaigues",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+    }
+]
