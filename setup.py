@@ -24,7 +24,6 @@ setup(
     author='Sébastien Pittet',
     author_email='sebastien@pittet.org',
     description='Fetch Cavelink and Weather data and store it to influxDB.',
-    long_description_content_type='text/rst',
     long_description=long_description,
     url='https://github.com/SebastienPittet/speleo-OWDL',
     keywords='speleo cavelink netatmo weather',
@@ -40,7 +39,7 @@ setup(
         'influxdb',
     ],
     entry_points={
-        'console_scripts':['speleo = speleo.speleo:main']
+        'console_scripts':['speleowdl = speleOWDL.speleowdl:main']
     },
     classifiers=[
         'Programming Language :: Python :: 3',

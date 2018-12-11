@@ -36,9 +36,7 @@ Explain here the ...sadf
 
 .. code:: python
 
-  def my_function():
-      "just a test"
-      print 8/2
+  python3 setup.py install:
 
 
 ==========
