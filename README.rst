@@ -71,24 +71,26 @@ This file is JSON formatted, see `my own example <https://github.com/SebastienPi
 It has to follow the following structure, with the fields :
 
 For Cavelink sensors:
+^^^^^^^^^^^^^^^^^^^^
 
-:active: True or False. Used to disable a sensor.
-:description: Allows you to have a readable explanation of this sensor.
-:url: Cavelink URL
-:table: Used to insert data in influxDB
-:tags: A list of tags. Will be inserted in the measurements.
-:type: The value 'cavelink' identify the sensor and calls the right lib
+:active True or False. Used to disable a sensor.
+:description Allows you to have a readable explanation of this sensor.
+:url Cavelink URL
+:table Used to insert data in influxDB
+:tags A list of tags. Will be inserted in the measurements.
+:type The value 'cavelink' identify the sensor and calls the right lib
 
 
 For NetAtmo sensors:
+^^^^^^^^^^^^^^^^^^^
 
-:active: True or False. Used to disable a sensor.
-:description: Allows you to have a readable explanation of this sensor.
-:table: Used to insert data in influxDB
-:tags: A list of tags. Will be inserted in the measurements-
-:type: The value 'netatmo' allows the code to use NetAtmo API
-:unit: Specify the unit of the sensor (inserted in the table)
-:latitude: Coordinate of the netAtmo station.
+:active True or False. Used to disable a sensor.
+:description Allows you to have a readable explanation of this sensor.
+:table Used to insert data in influxDB
+:tags A list of tags. Will be inserted in the measurements-
+:type The value 'netatmo' allows the code to use NetAtmo API
+:unit Specify the unit of the sensor (inserted in the table)
+:latitude Coordinate of the netAtmo station.
 :longitude: Coordinate of the netAtmo station.
 
 
@@ -101,6 +103,10 @@ Exemple
   speleowdl --collect speleo --configuration ./config.ini --sensors sensors.json
   speleowdl --collect weather --configuration ./config.ini --sensors sensors.json
 
+
+=========
+Footnotes
+=========
 
 .. [#] https://www.cryptomuseum.com/spy/owvl/index.htm
 .. [#] https://en.wikipedia.org/wiki/Shortwave_radio
