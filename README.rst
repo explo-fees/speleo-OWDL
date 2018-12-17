@@ -17,7 +17,7 @@ We do not use short waves (HF [#]_) like OWVL transmitters, but VLF (= Very Low 
 So, I diverted the reference of OWVL to OWDL.
 
 
-The Speleo-OWDL project allows to retrieve information from the caves, but also rainfall data by using the API provided by NetAtmo. Thanks to these Unofficial Informats[#]_ of their collaboration.
+The Speleo-OWDL project allows to retrieve information from the caves, but also rainfall data by using the API provided by NetAtmo. Thanks to these Unofficial Informants [#]_ of their collaboration.
 Finally, the data is used to correlate events using TICK-stack [#]_, Telegram, InfluxDB, Chronograph, Kapacitor.
 
 The aim of this tool is to :
@@ -44,7 +44,7 @@ You will then call the tool as a command line.
 Usage
 =====
 
-.. code:: python
+.. code:: bash
   speleowdl <parameters>
 
 
@@ -72,30 +72,30 @@ It has to follow the following structure, with the fields :
 
 For Cavelink sensors:
 
-active       True or False. Used to disable a sensor.
-description  Allows you to have a readable explanation of this sensor.
-url          Cavelink URL
-table        Used to insert data in influxDB
-tags         A list of tags. Will be inserted in the measurements.
-type         The value 'cavelink' identify the sensor and calls the right lib
+:active: True or False. Used to disable a sensor.
+:description: Allows you to have a readable explanation of this sensor.
+:url: Cavelink URL
+:table: Used to insert data in influxDB
+:tags: A list of tags. Will be inserted in the measurements.
+:type: The value 'cavelink' identify the sensor and calls the right lib
 
 
 For NetAtmo sensors:
 
-active       True or False. Used to disable a sensor.
-description  Allows you to have a readable explanation of this sensor.
-table        Used to insert data in influxDB
-tags         A list of tags. Will be inserted in the measurements-
-type         The value 'netatmo' allows the code to use NetAtmo API
-unit         Specify the unit of the sensor (inserted in the table)
-latitude     Coordinate of the netAtmo station.
-longitude    Coordinate of the netAtmo station.
+:active: True or False. Used to disable a sensor.
+:description: Allows you to have a readable explanation of this sensor.
+:table: Used to insert data in influxDB
+:tags: A list of tags. Will be inserted in the measurements-
+:type: The value 'netatmo' allows the code to use NetAtmo API
+:unit: Specify the unit of the sensor (inserted in the table)
+:latitude: Coordinate of the netAtmo station.
+:longitude: Coordinate of the netAtmo station.
 
 
 Exemple
 ^^^^^^^
 
-.. code:: python
+.. code:: bash
 
   speleowdl --collect all --configuration ./config.ini --sensors sensors.json
   speleowdl --collect speleo --configuration ./config.ini --sensors sensors.json
