@@ -12,9 +12,11 @@ import json
 from cavelink import cavelink
 import pyatmo
 import click
-from influxdb import InfluxDBClient
+from influxdb_client import InfluxDBClient, Point, WritePrecision
+from influxdb_client.client.write_api import SYNCHRONOUS
+from datetime import datetime
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 @click.command()
 @click.option('--collect',
@@ -86,8 +88,8 @@ def main(collect, configuration, sensors):
 
     # get nb_rows to be queried from config file
     nb_rows = config.get('cavelink', 'rows')
-    logging.info('Config file: fetching %s row(s) from cavelink.' % (nb_rows))
-    click.secho('Config file: fetching %s row(s) from cavelink.' % (nb_rows), fg='green')
+    logging.info('Config file: fetching %s last record(s) from cavelink.' % (nb_rows))
+    click.secho('Config file: fetching %s last record(s) from cavelink.' % (nb_rows), fg='green')
 
     # get information to interact with NetAtmo
     netatmo_client_id     = config.get('netatmo', 'CLIENT_ID')
@@ -100,12 +102,10 @@ def main(collect, configuration, sensors):
     margin = float(margin)
 
     # get params to connect the influxDB database
-    influxDB_server = config.get('database', 'influxDB_server')
-    influxDB_server_port = int(config.get('database', 'influxDB_server_port'))
-    influxDB_username = config.get('database', 'influxDB_username')
-    influxDB_password = config.get('database', 'influxDB_password')
-    influxDB_database = config.get('database', 'influxDB_database')
-    influxDB_ssl = config.get('database', 'influxDB_ssl')
+    influxDB_url = config.get('database', 'influxDB_url')
+    influxDB_token = config.get('database', 'influxDB_token')
+    influxDB_org = config.get('database', 'influxDB_org')
+    influxDB_bucket = config.get('database', 'influxDB_bucket')
 
 
     # read sensors definition file
@@ -156,12 +156,15 @@ def main(collect, configuration, sensors):
                     measurement['measurement'] = sensor['table']
                     measurement['tags'] = sensor['tags']
                     measurement['tags']['unit']= cl['sensor']['unit']
-                    measurement['time'] = int(timestamp) * 1000  # milliseconds
+                    measurement['time'] = int(timestamp) * 1_000_000_000 # nanoseconds
                     measurement['fields'] = {}
                     measurement['fields']['value'] = cl['measures'][timestamp]
                     
                     # Append a measurement to the list
                     measurements.append(measurement)
+
+                # in case of debug, show only the last measurment of the sensor
+                logging.debug(measurement)
                 
             elif sensor['type'] == 'netatmo':
             
@@ -189,7 +192,7 @@ def main(collect, configuration, sensors):
                     measurement['measurement'] = sensor['table']
                     measurement['tags'] = sensor['tags']
                     measurement['tags']['unit'] = sensor['unit']
-                    measurement['time'] = netatmo.getTimeForRainMeasures()[pluvioId] * 1000 # milliseconds
+                    measurement['time'] = netatmo.getTimeForRainMeasures()[pluvioId] * 1_000_000_000 # nanoseconds
                     measurement['fields'] = {}
                     measurement['fields']['value'] = float(netatmo.get60minRain()[pluvioId])
                     measurement['tags']['location'] = netatmo.getLocations()[pluvioId]
@@ -208,13 +211,11 @@ def main(collect, configuration, sensors):
     if measurements:
 
         # login to influxDB
-        client = InfluxDBClient(influxDB_server, influxDB_server_port, influxDB_username, influxDB_password, influxDB_database)
-
-        # create database
-        client.create_database(influxDB_database)
+        client = InfluxDBClient(url=influxDB_url, token=influxDB_token)
 
         # write measurements in batch
-        client.write_points(measurements, time_precision='ms')
+        write_api = client.write_api(write_options=SYNCHRONOUS)
+        write_api.write(influxDB_bucket, influxDB_org, measurements)
 
         logging.info('%s measurements written in DB.' % len(measurements))
         click.secho('%s measurements written in DB.' % len(measurements), fg='green')

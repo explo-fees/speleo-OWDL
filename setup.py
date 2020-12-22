@@ -36,7 +36,7 @@ setup(
         'pyatmo',
         'Click',
         'colorama',
-        'influxdb',
+        'influxdb-client',
     ],
     entry_points={
         'console_scripts':['speleowdl = speleOWDL.speleowdl:main']
