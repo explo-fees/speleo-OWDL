@@ -152,13 +152,14 @@ def main(collect, configuration, sensors):
                 logging.debug('%s records received for sensor : %s' % (len(cl['measures']), sensor['description']))
 
                 for timestamp in cl['measures']:
+                    valuetype = sensor['tags']['sensor']
                     measurement = {}
                     measurement['measurement'] = sensor['table']
                     measurement['tags'] = sensor['tags']
                     measurement['tags']['unit']= cl['sensor']['unit']
                     measurement['time'] = int(timestamp) * 1_000_000_000 # nanoseconds
                     measurement['fields'] = {}
-                    measurement['fields']['value'] = cl['measures'][timestamp]
+                    measurement['fields'][valuetype] = cl['measures'][timestamp]
                     
                     # Append a measurement to the list
                     measurements.append(measurement)
