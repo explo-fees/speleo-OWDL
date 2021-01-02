@@ -78,12 +78,12 @@ def main(collect, configuration, sensors):
     logger = logging.getLogger()
     LogLevel = getattr(logging, loglevel.upper(), None)
     logger.setLevel(LogLevel)
-    
+
     # Create a Console Handler and add it to parent logger
     consoleHandler = logging.StreamHandler()
     consoleHandler.setLevel(LogLevel)
     logger.addHandler(consoleHandler)
-    
+
     # Specify the log format
     formatter = logging.Formatter('%(asctime)s  %(name)s  %(levelname)s: %(message)s')
     consoleHandler.setFormatter(formatter)
