@@ -154,12 +154,14 @@ def main(collect, configuration, sensors):
 
                 # get URL from definition file, specified in config file
                 webpage = sensor['url']
+                logging.debug('url selected: %s' % (webpage))
 
                 logging.info('Querying %s rows of %s' % (nb_rows, sensor['description']))
                 s = cavelink.Sensor(webpage, nb_rows)
                 cl = json.loads(s.getJSON('epoch'))
 
                 logging.debug('%s records received for sensor : %s' % (len(cl['measures']), sensor['description']))
+                logging.debug('Records recevied: %s' % (cl['measures']))
 
                 for timestamp in cl['measures']:
                     valuetype = sensor['tags']['sensor']
