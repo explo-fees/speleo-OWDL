@@ -73,11 +73,21 @@ def main(collect, configuration, sensors):
 
     # Configure logging
     loglevel = config.get('logging','loglevel')
-    logfile = config.get('logging','logfile')
-    numeric_level = getattr(logging, loglevel.upper(), None)
-    logging.basicConfig(filename=logfile,
-                        format='%(asctime)s - %(levelname)s - %(message)s',
-                        level=numeric_level)
+
+    # Create Logger and set log level (parent)
+    logger = logging.getLogger()
+    LogLevel = getattr(logging, loglevel.upper(), None)
+    logger.setLevel(LogLevel)
+    
+    # Create a Console Handler and add it to parent logger
+    consoleHandler = logging.StreamHandler()
+    consoleHandler.setLevel(LogLevel)
+    logger.addHandler(consoleHandler)
+    
+    # Specify the log format
+    formatter = logging.Formatter('%(asctime)s  %(name)s  %(levelname)s: %(message)s')
+    consoleHandler.setFormatter(formatter)
+
     logging.info('============= [ START ] =============')
     logging.info('Configuration file = %s' % (configuration_file))
     click.secho('Configuration file = %s' % (configuration_file), fg='yellow')
