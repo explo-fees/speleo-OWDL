@@ -416,5 +416,24 @@
             "canton": "Vaud",
             "pays": "Suisse"
         }
+    },
+    {
+        "active": "True",
+        "description": "Pluviometre Ballaigues",
+        "table": "meteo",
+        "unit": "l/m2",
+        "type": "netatmo",
+        "latitude": "46.73150",
+        "longitude": "6.40883",
+        "address": "Route des Cernys 14, Ballaigues",
+        "tags": {
+            "sensor": "Netatmo",
+            "station": "Cernys-14",
+            "module": "Pluviometre",
+            "commune": "Ballaigues",
+            "canton": "Vaud",
+            "pays": "Suisse"
+        }
+
     }
 ]
