@@ -169,7 +169,7 @@
         }
     },
     {
-        "active": "True",
+        "active": "False",
         "description": "Pisserette - Tension Pile GSM",
         "url": "https://www.cavelink.com/cl/da.php?s=143&g=0&w=0&l=10",
         "table": "speleo",
@@ -182,7 +182,7 @@
         }
     },
     {
-        "active": "True",
+        "active": "False",
         "description": "Pisserette - Niveau GSM",
         "url": "https://www.cavelink.com/cl/da.php?s=143&g=0&w=1&l=10",
         "table": "speleo",
@@ -195,7 +195,7 @@
         }
     },
     {
-        "active": "True",
+        "active": "False",
         "description": "Pisserette - Temperature GSM",
         "url": "https://www.cavelink.com/cl/da.php?s=142&g=30&w=1&l=10",
         "table": "speleo",
@@ -208,7 +208,7 @@
         }
     },
     {
-        "active": "True",
+        "active": "False",
         "description": "Pisserette - Pression atmospherique GSM",
         "url": "https://www.cavelink.com/cl/da.php?s=142&g=30&w=2&l=10",
         "table": "speleo",
@@ -221,7 +221,7 @@
         }
     },
     {
-        "active": "True",
+        "active": "False",
         "description": "Pisserette - Tension Pile Cavelink",
         "url": "https://www.cavelink.com/cl/da.php?s=142&g=30&w=220&l=10",
         "table": "speleo",
@@ -234,7 +234,7 @@
         }
     },
     {
-        "active": "True",
+        "active": "False",
         "description": "Pisserette - Resistance Antenne Cave-Link",
         "url": "https://www.cavelink.com/cl/da.php?s=142&g=30&w=224&l=10",
         "table": "speleo",
@@ -247,7 +247,7 @@
         }
     },
     {
-        "active": "True",
+        "active": "False",
         "description": "Glaisine - Tension Pile Cavelink",
         "url": "https://www.cavelink.com/cl/da.php?s=142&g=40&w=220&l=10",
         "table": "speleo",
@@ -260,7 +260,7 @@
         }
     },
     {
-        "active": "True",
+        "active": "False",
         "description": "Glaisine - Resistance Antenne Cavelink",
         "url": "https://www.cavelink.com/cl/da.php?s=142&g=40&w=224&l=10",
         "table": "speleo",
@@ -273,7 +273,7 @@
         }
     },
     {
-        "active": "True",
+        "active": "False",
         "description": "Glaisine - dBuWs/bit -> Surface",
         "url": "https://www.cavelink.com/cl/da.php?s=142&g=40&w=263&l=10",
         "table": "speleo",
@@ -286,7 +286,7 @@
         }
     },
     {
-        "active": "True",
+        "active": "False",
         "description": "Glaisine - Temperature Lac Pont de Singe",
         "url": "https://www.cavelink.com/cl/da.php?s=142&g=40&w=2&l=10",
         "table": "speleo",
@@ -299,7 +299,7 @@
         }
     },
     {
-        "active": "True",
+        "active": "False",
         "description": "Glaisine - Niveau Lac Pont de Singe",
         "url": "https://www.cavelink.com/cl/da.php?s=142&g=40&w=100&l=10",
         "table": "speleo",
@@ -383,20 +383,20 @@
     },
     {
         "active": "True",
-        "description": "Pluviometre au Lieu",
+        "description": "Pluviometre Châtelblanc/France",
         "table": "meteo",
         "unit": "l/m2",
         "type": "netatmo",
-        "latitude": "46.659512",
-        "longitude": "6.276152",
-        "address": "La Frasse, Le Lieu",
+        "latitude": "46.67296",
+        "longitude": "6.11585",
+        "address": "Grande Rue 17, Châtelblanc, France",
         "tags": {
             "sensor": "Netatmo",
-            "station": "La-Frasse",
+            "station": "Grande Rue 17",
             "module": "Pluviometre",
-            "commune": "Le-Lieu",
-            "canton": "Vaud",
-            "pays": "Suisse"
+            "commune": "Châtelblanc",
+            "canton": "Doubs",
+            "pays": "France"
         }
     },
     {
@@ -433,6 +433,44 @@
             "commune": "Ballaigues",
             "canton": "Vaud",
             "pays": "Suisse"
+        }
+
+    },
+    {
+        "active": "True",
+        "description": "Pluviometre Métabief",
+        "table": "meteo",
+        "unit": "l/m2",
+        "type": "netatmo",
+        "latitude": "46.770706",
+        "longitude": "6.356636",
+        "address": "Bellevue l'Escale, Métabief, France",
+        "tags": {
+            "sensor": "Netatmo",
+            "station": "Bellevue l'Escale",
+            "module": "Pluviometre",
+            "commune": "Métabief",
+            "canton": "Doubs",
+            "pays": "France"
+        }
+
+    },
+    {
+        "active": "True",
+        "description": "Pluviometre Hôpitaux-Neufs",
+        "table": "meteo",
+        "unit": "l/m2",
+        "type": "netatmo",
+        "latitude": "46.73150",
+        "longitude": "6.40883",
+        "address": "Route du Miroir, Les Hôpitaux-Neufs, France",
+        "tags": {
+            "sensor": "Netatmo",
+            "station": "Route du Miroir",
+            "module": "Pluviometre",
+            "commune": "Hôpitaux-Neufs",
+            "canton": "Doubs",
+            "pays": "France"
         }
 
     }

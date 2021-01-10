@@ -185,7 +185,8 @@ def main(collect, configuration, sensors):
                 latitude = float(sensor['latitude'])
                 longitude = float(sensor['longitude'])
                 
-                logging.info('Netatmo: %s at %s' % (sensor['description'], sensor['address']))
+                logging.info('Looking for Netatmo: %s at %s' % (sensor['description'],
+                                                                sensor['address']))
                 logging.debug('Gather netatmo data for location: Lat %s and Lon %s' % (latitude, longitude))
                 
                 try:
@@ -210,6 +211,7 @@ def main(collect, configuration, sensors):
                     measurement['fields']['value'] = float(netatmo.get60minRain()[pluvioId])
                     measurement['tags']['location'] = netatmo.getLocations()[pluvioId]
                     
+                    logging.debug('Sensor Address: %s' % sensor['address'])
                     logging.debug('Id Pluviomètre: %s' % pluvioId)
                     logging.debug('Location: %s' % netatmo.getLocations()[pluvioId])
                     logging.debug('Live rain: %s' % netatmo.getLive()[pluvioId])
