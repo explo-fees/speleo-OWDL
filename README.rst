@@ -6,7 +6,7 @@ The name of this project comes directly from a reference to the Cold War period.
 
         *A numbers station, also known as a one-way voice link (OWVL), is a special type of unusual radio broadcast, generally on the Short Wave (SW) radio bands, reading out incomprehensible lists of (spoken) numbers or morse coded messages. The most common type features a female voice, reading long strings of numbers, generally in groups of five, often preceeded by a preamble and/or a series of musical notes. In most cases, such stations carry OTP encrypted messages.* [#]_
 
-We speleologists are passionate about the events that take place in the caves and want to observe them as closely as possible, even when weather conditions prevent it.
+We speleologists are passionate about the events that take place in the caves and want to observe them as closely as possible, even when weather conditions prevent it. This piece of software is basically a data scrapper.
 
 The Cavelink system, created by Felix Ziegler, offers interesting answers:
 
@@ -18,7 +18,7 @@ So, I diverted the reference of OWVL to OWDL.
 
 
 The Speleo-OWDL project allows to retrieve information from the caves, but also rainfall data by using the API provided by NetAtmo. Thanks to these Unofficial Informants [#]_ of their collaboration.
-Finally, the data is used to correlate events using TICK-stack [#]_, Telegram, InfluxDB, Chronograph, Kapacitor.
+Finally, the data is used to correlate events using Grafana.
 
 The aim of this tool is to :
 
@@ -112,5 +112,3 @@ Footnotes
 .. [#] https://www.cryptomuseum.com/spy/owvl/index.htm
 .. [#] https://en.wikipedia.org/wiki/Shortwave_radio
 .. [#] https://en.wikipedia.org/wiki/Unofficial_collaborator
-.. [#] https://www.influxdata.com/time-series-platform/
-
