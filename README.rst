@@ -63,7 +63,7 @@ Parameters
 Configuration file
 """"""""""""""""""
 
-The configuration file is INI formatted. Here is the example of `configuration file <https://github.com/SebastienPittet/speleo-OWDL/blob/master/speleOWDL/config.ini>`_.
+The configuration file is INI formatted. Here is the example of `configuration file <https://github.com/SebastienPittet/speleo-OWDL/blob/master/config.ini>`_.
 
 
 Sensors file
