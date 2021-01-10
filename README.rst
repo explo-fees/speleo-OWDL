@@ -68,7 +68,7 @@ The configuration file is INI formatted. Here is the example of `configuration f
 
 Sensors file
 """"""""""""
-This file is JSON formatted, see `my own example <https://github.com/SebastienPittet/speleo-OWDL/blob/master/speleOWDL/sensors.json>`_.
+This file is JSON formatted, see `my own example <https://github.com/SebastienPittet/speleo-OWDL/blob/master/sensors.json>`_.
 It has to follow the following structure, with the fields :
 
 For Cavelink sensors:
