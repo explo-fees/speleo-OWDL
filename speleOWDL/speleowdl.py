@@ -117,7 +117,6 @@ def main(collect, configuration, sensors):
     influxDB_org = config.get('database', 'influxDB_org')
     influxDB_bucket = config.get('database', 'influxDB_bucket')
 
-
     # read sensors definition file
     with open(sensors_file, 'r') as f:
         sensors = json.load(f)
@@ -196,21 +195,13 @@ def main(collect, configuration, sensors):
                                             LAT_SW = latitude - margin,
                                             LON_SW = longitude - margin
                                             )
-                    logging.debug('Found %s netatmo in area.' % netatmo.CountStationInArea())
+                    logging.debug('Found %s netatmo sensor(s) in area.' % netatmo.CountStationInArea())
                 except:
                     e = sys.exc_info()[0]
                     logging.debug(e)
                 
                 for pluvioId in netatmo.get60minRain().keys():
-                    measurement = {}
-                    measurement['measurement'] = sensor['table']
-                    measurement['tags'] = sensor['tags']
-                    measurement['tags']['unit'] = sensor['unit']
-                    measurement['time'] = netatmo.getTimeForRainMeasures()[pluvioId] * 1_000_000_000 # nanoseconds
-                    measurement['fields'] = {}
-                    measurement['fields']['value'] = float(netatmo.get60minRain()[pluvioId])
-                    measurement['tags']['location'] = netatmo.getLocations()[pluvioId]
-                    
+
                     logging.debug('Sensor Address: %s' % sensor['address'])
                     logging.debug('Id Pluviomètre: %s' % pluvioId)
                     logging.debug('Location: %s' % netatmo.getLocations()[pluvioId])
@@ -218,9 +209,26 @@ def main(collect, configuration, sensors):
                     logging.debug('Last hour rain: %s' % netatmo.get60minRain()[pluvioId])
                     logging.debug('Last day rain: %s' % netatmo.get24hRain()[pluvioId])
                     logging.debug('Time at last rain: %s' % netatmo.getTimeForRainMeasures()[pluvioId])
+
+                    rainGauge = float(netatmo.get60minRain()[pluvioId])
+                    if rainGauge > 0: # avoid insert data with rain=0
+                        measurement = {}
+                        measurement['measurement'] = sensor['table']
+                        measurement['tags'] = sensor['tags']
+                        measurement['tags']['unit'] = sensor['unit']
+                        measurement['time'] = netatmo.getTimeForRainMeasures()[pluvioId] * 1_000_000_000 # nanoseconds
+                        measurement['fields'] = {}
+                        measurement['fields']['value'] = rainGauge
+                        measurement['tags']['location'] = netatmo.getLocations()[pluvioId]
+
+                        logging.debug('Add measurement: %s mm. by %s at %s' % (
+                                                                        rainGauge,
+                                                                        pluvioId,
+                                                                        netatmo.getLocations()[pluvioId]
+                        ))
                 
-                    # Append a measurement to the list
-                    measurements.append(measurement)
+                        # Append a measurement to the list
+                        measurements.append(measurement)
 
     # Post the measurements in batch to influxDB, if not empty
     if measurements:
@@ -234,6 +242,7 @@ def main(collect, configuration, sensors):
 
         logging.info('%s measurements written in DB.' % len(measurements))
         click.secho('%s measurements written in DB.' % len(measurements), fg='green')
+
     else:
         logging.info('No measurement to write.')
         click.secho('No measurement to write.', fg='red')
