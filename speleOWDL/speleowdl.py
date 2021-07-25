@@ -14,10 +14,9 @@ import pyatmo
 import click
 from influxdb_client import InfluxDBClient, Point, WritePrecision
 from influxdb_client.client.write_api import SYNCHRONOUS
-#from datetime import datetime
 import time
 
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 
 @click.command()
 @click.option('--collect',
