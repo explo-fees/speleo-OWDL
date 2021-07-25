@@ -14,7 +14,8 @@ import pyatmo
 import click
 from influxdb_client import InfluxDBClient, Point, WritePrecision
 from influxdb_client.client.write_api import SYNCHRONOUS
-from datetime import datetime
+#from datetime import datetime
+import time
 
 __version__ = "0.0.2"
 
@@ -137,11 +138,13 @@ def main(collect, configuration, sensors):
     click.secho('Found %s active sensor(s) of type: "%s".' % (len(active_sensors), collect), fg='green')
 
     # Login at Netatmo
-    authorization = pyatmo.ClientAuth(clientId = netatmo_client_id,
-                                      clientSecret = netatmo_client_secret,
+    logging.debug("Loging to Netatmo")
+    authorization = pyatmo.ClientAuth(client_id = netatmo_client_id,
+                                      client_secret = netatmo_client_secret,
                                       username = netatmo_username,
-                                      password = netatmo_password)
-      
+                                      password = netatmo_password,
+                                      scope="read_station")
+
     measurements = []  # create a list of measurements to be written to influxDB
 
     # Parse a list of dict (sensors, from sensors file)
@@ -186,49 +189,42 @@ def main(collect, configuration, sensors):
                 
                 logging.info('Looking for Netatmo: %s at %s' % (sensor['description'],
                                                                 sensor['address']))
-                logging.debug('Gather netatmo data for location: Lat %s and Lon %s' % (latitude, longitude))
-                
+                logging.debug('Fetch netatmo data for location: Lat %s and Lon %s' % (latitude, longitude))
+               
                 try:
-                    netatmo = pyatmo.PublicData(authorization,
-                                            LAT_NE = latitude + margin,
-                                            LON_NE = longitude + margin,
-                                            LAT_SW = latitude - margin,
-                                            LON_SW = longitude - margin
+                    weather_pubdata = pyatmo.PublicData(authorization,
+                                            lat_ne = str(latitude + margin),
+                                            lon_ne = str(longitude + margin),
+                                            lat_sw = str(latitude - margin),
+                                            lon_sw = str(longitude - margin),
                                             )
-                    logging.debug('Found %s netatmo sensor(s) in area.' % netatmo.CountStationInArea())
+                    weather_pubdata.update()
+                    logging.debug('Got public data, %s stations in area.' % weather_pubdata.stations_in_area())
                 except:
-                    e = sys.exc_info()[0]
+                    e = sys.exc_info()
                     logging.debug(e)
+
+                avg_rainGauge = weather_pubdata.get_average_60_min_rain()
+                logging.debug('Average rain at %s: %s' % (avg_rainGauge, sensor["address"]))
                 
-                for pluvioId in netatmo.get60minRain().keys():
+                if avg_rainGauge > 0: # avoid insert data with rain=0
+                    measurement = {}
+                    measurement['measurement'] = sensor['table']
+                    measurement['tags'] = sensor['tags']
+                    measurement['tags']['unit'] = sensor['unit']
+                    measurement['time'] = int(round(time.time() * 1000000000)) # nanoseconds
+                    measurement['fields'] = {}
+                    measurement['fields']['value'] = avg_rainGauge
 
-                    logging.debug('Sensor Address: %s' % sensor['address'])
-                    logging.debug('Id Pluviomètre: %s' % pluvioId)
-                    logging.debug('Location: %s' % netatmo.getLocations()[pluvioId])
-                    logging.debug('Live rain: %s' % netatmo.getLive()[pluvioId])
-                    logging.debug('Last hour rain: %s' % netatmo.get60minRain()[pluvioId])
-                    logging.debug('Last day rain: %s' % netatmo.get24hRain()[pluvioId])
-                    logging.debug('Time at last rain: %s' % netatmo.getTimeForRainMeasures()[pluvioId])
+                    logging.debug('Add measurement: %s mm. at %s' % (
+                                                                    avg_rainGauge,
+                                                                    sensor["address"],
+                                                                    )
 
-                    rainGauge = float(netatmo.get60minRain()[pluvioId])
-                    if rainGauge > 0: # avoid insert data with rain=0
-                        measurement = {}
-                        measurement['measurement'] = sensor['table']
-                        measurement['tags'] = sensor['tags']
-                        measurement['tags']['unit'] = sensor['unit']
-                        measurement['time'] = netatmo.getTimeForRainMeasures()[pluvioId] * 1_000_000_000 # nanoseconds
-                        measurement['fields'] = {}
-                        measurement['fields']['value'] = rainGauge
-                        measurement['tags']['location'] = netatmo.getLocations()[pluvioId]
-
-                        logging.debug('Add measurement: %s mm. by %s at %s' % (
-                                                                        rainGauge,
-                                                                        pluvioId,
-                                                                        netatmo.getLocations()[pluvioId]
-                        ))
+                    )
                 
-                        # Append a measurement to the list
-                        measurements.append(measurement)
+                    # Append a measurement to the list
+                    measurements.append(measurement)
 
     # Post the measurements in batch to influxDB, if not empty
     if measurements:
