@@ -6,13 +6,12 @@
 
 import configparser
 import logging
-import os
 import sys
 import json
 from cavelink import cavelink
 import pyatmo
 import click
-from influxdb_client import InfluxDBClient, Point, WritePrecision
+from influxdb_client import InfluxDBClient
 from influxdb_client.client.write_api import SYNCHRONOUS
 import time
 
@@ -199,7 +198,7 @@ def main(collect, configuration, sensors):
                                             )
                     weather_pubdata.update()
                     logging.debug('Got public data, %s stations in area.' % weather_pubdata.stations_in_area())
-                except:
+                except BaseException:
                     e = sys.exc_info()
                     logging.debug(e)
 

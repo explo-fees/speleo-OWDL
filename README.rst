@@ -1,3 +1,5 @@
+|lgtm Alerts|  |code quality|
+
 =======================================
 About Speleo-OWDL (= One-Way Data link)
 =======================================
@@ -112,3 +114,9 @@ Footnotes
 .. [#] https://www.cryptomuseum.com/spy/owvl/index.htm
 .. [#] https://en.wikipedia.org/wiki/Shortwave_radio
 .. [#] https://en.wikipedia.org/wiki/Unofficial_collaborator
+
+.. |lgtm Alerts| image:: https://img.shields.io/lgtm/alerts/g/explo-fees/speleo-OWDL.svg?logo=lgtm&logoWidth=18
+   :target: https://lgtm.com/projects/g/explo-fees/speleo-OWDL/alerts/
+
+.. |code quality| image:: https://img.shields.io/lgtm/grade/python/g/explo-fees/speleo-OWDL.svg?logo=lgtm&logoWidth=18
+   :target: href="https://lgtm.com/projects/g/explo-fees/speleo-OWDL/context:python
